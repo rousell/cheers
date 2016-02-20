@@ -6,10 +6,17 @@ using System.Threading.Tasks;
 
 namespace Cheers
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
+            string name;
+            Console.Clear();
+            Console.Write("\nWhat is your name?");
+            name = Console.ReadLine();
+            Console.Write(name);
+            Console.Write("\nPress any KEY to close the console.");
+            Console.ReadKey();
         }
     }
 }

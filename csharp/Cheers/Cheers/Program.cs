@@ -14,7 +14,11 @@ namespace Cheers
             Console.Clear();
             Console.Write("\nWhat is your name?");
             name = Console.ReadLine();
-            Console.Write(name);
+            for (int i = 1; i <= name.Length; i++)
+            {
+                Console.WriteLine("Give me a .. " + name[i-1]);
+            }
+            Console.WriteLine(name + " is... GRAND!");
             Console.Write("\nPress any KEY to close the console.");
             Console.ReadKey();
         }

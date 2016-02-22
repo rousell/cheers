@@ -30,18 +30,25 @@ namespace Cheers
                 }
             }
             Console.WriteLine(name.ToUpper() + " is... GRAND!");
-            var days = today - dtdob;
+            var days = today.DayOfYear - dtdob.DayOfYear;
             var years = today.Year - dtdob.Year;
-            var dayscalc = days.Days - (years*365);
+            var dayscalc = days;
+            var msg = "";
             if (dayscalc < 0)
             {
                 dayscalc = -dayscalc;
-            } 
+                msg = "Your Birthday is " + dayscalc + " days away!";
+            }
+            else if (dayscalc == 0)
+            {
+                msg = "Happy Birthday!!";
+            }
             else
             {
                 dayscalc = 365 - dayscalc;
+                msg = "Your Birthday is " + dayscalc + " days away!";
             }
-            Console.WriteLine("Your Birthday is " + dayscalc + " days away!");
+            Console.WriteLine(msg);
             Console.Write("\nPress any KEY to close the console.");
             Console.ReadKey();
         }

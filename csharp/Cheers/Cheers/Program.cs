@@ -11,9 +11,14 @@ namespace Cheers
         public static void Main(string[] args)
         {
             string name;
+            string dob;
             Console.Clear();
             Console.Write("\nWhat is your name?");
             name = Console.ReadLine();
+            Console.Write("\nWhat's your Birthday?");
+            dob = Console.ReadLine();
+            DateTime dtdob = DateTimeOffset.Parse(dob).UtcDateTime;
+            DateTime today = DateTime.UtcNow;
             for (int i = 1; i <= name.Length; i++)
             {
                 var lowerName = name.ToLower(); 
@@ -25,6 +30,18 @@ namespace Cheers
                 }
             }
             Console.WriteLine(name.ToUpper() + " is... GRAND!");
+            var days = today - dtdob;
+            var years = today.Year - dtdob.Year;
+            var dayscalc = days.Days - (years*365);
+            if (dayscalc < 0)
+            {
+                dayscalc = -dayscalc;
+            } 
+            else
+            {
+                dayscalc = 365 - dayscalc;
+            }
+            Console.WriteLine("Your Birthday is " + dayscalc + " days away!");
             Console.Write("\nPress any KEY to close the console.");
             Console.ReadKey();
         }
